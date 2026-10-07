@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#282834">
+<link rel="canonical" href="https://jpalanca.es/noctimar/release-notes.html">
+<meta property="og:title" content="Release Notes — NoctiMar">
+<meta property="og:description" content="Release notes for NoctiMar.">
+<meta property="og:image" content="https://jpalanca.es/photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jpalanca.es/noctimar/release-notes.html">
+<title>Release Notes — NoctiMar</title>
+<meta name="description" content="Release notes for NoctiMar.">
+<style>
+  html, body { overflow-x: clip; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #101014; color: #fff; margin: 0; line-height: 1.6; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 1.6rem; }
+  a { color: #d0bcff; }
+  a.sub { font-size: .8rem; }
+  .shots { display: flex; gap: 16px; overflow-x: auto; margin: 24px 0; padding-bottom: 12px; scrollbar-width: thin; scrollbar-color: #3a3a3f transparent; }
+  .shots::-webkit-scrollbar { height: 8px; }
+  .shots::-webkit-scrollbar-track { background: transparent; }
+  .shots::-webkit-scrollbar-thumb { background: #3a3a3f; border-radius: 4px; }
+  .shots img { width: 180px; height: auto; border-radius: 28px; flex-shrink: 0; }
+  @media (min-width: 700px) {
+    .shots { display: grid; grid-template-columns: repeat(4, 1fr); overflow: visible; padding-bottom: 0; width: calc(100% + 64px); max-width: calc(100vw - 32px); margin: 24px 0 24px -32px; }
+    .shots img { width: 100%; height: auto; }
+  }
+  nav.top { font-size: .85rem; margin-bottom: 20px; }
+  nav.top a { color: #8a8794; text-decoration: none; }
+  footer { color: #8a8794; font-size: .85rem; margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="top"><a href="/">&#8249; Home</a></nav>
+  <h1>Release Notes — NoctiMar</h1>
+  <p><strong>NoctiMar v1.0</strong> @ <a href="https://github.com/jpalanca/NoctiMar">GitHub</a></p>
+  <p><a href="https://github.com/jpalanca/NoctiMar">NoctiMar</a> is a revival of <a href="https://github.com/jagandeepbrar/lunasea">LunaSea</a>, the open-source self-hosted media controller archived in April 2025. NoctiMar continues with the same idea of one remote control for every self-hosted media service on your network (Sonarr, Radarr, Lidarr, Prowlarr, SABnzbd, NZBGet, Tautulli at the moment) rebuilt on a current Flutter stack, rebranded under a new nocti convention, and extended with a Docker web build and an optional private personal server config sync so it runs anywhere from your phone to your NAS</p>
+  <div class="shots">
+    <img src="/noctimar/screenshots/modules.png" alt="NoctiMar modules list on iPhone" loading="lazy" width="384" height="800">
+    <img src="/noctimar/screenshots/radarr-grid.png" alt="NoctiMar Radarr movies grid on iPhone" loading="lazy" width="384" height="800">
+    <img src="/noctimar/screenshots/sonarr-grid.png" alt="NoctiMar Sonarr series grid on iPhone" loading="lazy" width="384" height="800">
+    <img src="/noctimar/screenshots/sync.png" alt="NoctiMar backup and sync settings on iPhone" loading="lazy" width="384" height="800">
+  </div>
+
+  <h2>What's New</h2>
+  <ul><li>Added Prowlarr support</li></ul>
+  <p><strong>Backup and restore from your own server</strong></p>
+  <ul>
+    <li>NoctiMar can now run in Docker on any host or IP address, no cloud service needed</li>
+    <li>NAS sync service: Settings System gains host, token, upload, and restore, with deployment auto-fill while fields sit empty</li>
+    <li>Uploads mirror to a shared blob, so fresh installs restore too</li>
+    <li>SABnzbd works through a same-origin proxy path, so browser builds avoid connection errors</li>
+  </ul>
+  <p><strong>General</strong></p>
+  <ul>
+    <li>The menu shows the app version at the bottom. Old builds turn it into a tappable update note, and the check re-runs on every navigation</li>
+    <li>Backup import on web uses a native file dialog with visible failure feedback instead of silent hangs</li>
+    <li>Failed list pages retry with a tap on the error icon instead of requiring a full pull-down refresh</li>
+  </ul>
+  <p><strong>Sonarr</strong></p>
+  <ul><li>Season view from Missing or Upcoming shows a TV button jumping straight to that series Seasons list</li></ul>
+
+  <h2>Improvements</h2>
+  <p><strong>Technology stack</strong></p>
+  <ul>
+    <li>Direct dependencies moved from the archived upstream pins to current releases, including 13 major upgrades. Resolved versions, old to new: badges 3.1.2 to 4.0.1, cached_network_image 3.4.1 to 4.0.2, device_preview 1.2.0 to 3.0.0, file_picker 9.2.3 to 13.1.0, fl_chart 0.70.2 to 1.2.0, flutter_cache_manager 3.4.1 to 3.4.5, flutter_launcher_icons 0.14.3 to 0.14.4, flutter_lints 5.0.0 to 6.0.0, flutter_native_splash 2.4.5 to 2.4.8, go_router 14.8.1 to 18.0.2, google_fonts 8.2.1 to 9.0.0, hive_ce 2.20.0 to 2.20.1, hive_ce_flutter 2.3.4 to 2.4.0, infinite_scroll_pagination 4.1.0 to 5.1.1, msix 3.16.8 to 3.18.0, package_info_plus 8.3.0 to 10.2.1, path_provider 2.1.5 to 2.1.6, percent_indicator 4.2.4 to 4.2.5, provider 6.1.4 to 6.1.5+1, quick_actions 1.1.0 to 1.1.1, share_plus 10.1.4 to 13.3.0, shimmer 3.0.0 to 4.0.0, stack_trace 1.12.1 to 1.12.2, table_calendar 3.2.0 to 3.2.1, url_launcher 6.3.1 to 6.3.2, uuid 4.5.1 to 4.6.0, window_manager 0.4.3 to 0.5.2, xml 6.5.0 to 7.1.0</li>
+    <li>Pagination and sharing flows were rewritten for the new APIs with no behavior loss. Code generation repaired for the current Dart toolchain. Remaining generators were already current</li>
+  </ul>
+  <p><strong>Speed</strong></p>
+  <ul><li>Poster and backdrop images decode capped sizes with a bounded image cache, cutting scroll jank on large libraries. Catalogue searches reuse memoized results, lists build rows lazily, and calendar, schedule, and log screens cache repeated work</li></ul>
+  <p><strong>Look and wording</strong></p>
+  <ul>
+    <li>Issue templates, funding page, and support links rebranded</li>
+    <li>Support links are placeholders until real community links exist</li>
+    <li>Internal identifiers renamed to the <code>nocti</code> convention</li>
+  </ul>
+
+  <h2>Removed</h2>
+  <ul><li>Discontinued Overseerr integration (service archived upstream). Settings no longer show it</li></ul>
+
+  <h2>Fixed</h2>
+  <p><strong>Sync and backup</strong></p>
+  <ul>
+    <li>Sync restore keeps host, token, and device id intact, even when the server copy is empty or stale</li>
+    <li>A missing server copy reports nothing to restore instead of failing</li>
+    <li>Web backup downloads preserve exact bytes for any file type</li>
+  </ul>
+  <p><strong>Editors and lists</strong></p>
+  <ul>
+    <li>Deleting a series returns to the originating tab, and removed shows vanish from lists instantly</li>
+    <li>Editors fall back gracefully when server profiles or entries were deleted elsewhere</li>
+    <li>Failed deletions no longer navigate away</li>
+  </ul>
+  <p><strong>Stability</strong></p>
+  <ul><li>Unreachable servers time out instead of spinning forever</li></ul>
+
+  <footer>© 2026 Jorge Palanca · <a href="/">Home</a> · <a href="/noctimar/privacy.html">Privacy Policy</a></footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#282834">
+<link rel="canonical" href="https://jpalanca.es/tv-remote-remapper/release-notes.html">
+<meta property="og:title" content="Release Notes — TV Remote Remapper">
+<meta property="og:description" content="Release notes for TV Remote Remapper.">
+<meta property="og:image" content="https://jpalanca.es/photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jpalanca.es/tv-remote-remapper/release-notes.html">
+<title>Release Notes — TV Remote Remapper</title>
+<meta name="description" content="Release notes for TV Remote Remapper.">
+<style>
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: #101014; color: #fff; margin: 0; line-height: 1.6; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 24px; }
+  h1 { font-size: 1.6rem; }
+  a { color: #d0bcff; }
+  a.sub { font-size: .8rem; }
+  nav.top { font-size: .85rem; margin-bottom: 20px; }
+  nav.top a { color: #8a8794; text-decoration: none; }
+  footer { color: #8a8794; font-size: .85rem; margin-top: 32px; }
+</style>
+</head>
+<body>
+<main>
+  <nav class="top"><a href="/">&#8249; Home</a></nav>
+  <h1>Release Notes — TV Remote Remapper</h1>
+  <p><strong>TV Remote Remapper v1.0</strong> @ <a href="https://github.com/jpalanca/android-tv-netflix-button-remapper">GitHub</a></p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Blocks or remaps the Netflix button on Nvidia Shield, Google TV Streamer, and Chromecast with Google TV remotes. No root required</li>
+    <li>Remap target picker: choose any launchable app, or block the button outright, with an optional toast confirmation</li>
+  </ul>
+
+  <h2>How it works</h2>
+  <ul>
+    <li>System-wide interception via AccessibilityService (no-root path, user-enabled in system settings)</li>
+    <li>Persistent foreground-service notification keeps the process alive; restarts on boot</li>
+    <li>In-app fallback while the settings UI has focus; key matcher covers codes 181, 190, 191, 199 and scan code 440</li>
+  </ul>
+
+  <h2>Settings</h2>
+  <ul>
+    <li>Preferences stored only on device (DataStore): blocking, toast, remap target</li>
+    <li>Interface in 32 locales, TV banner and icons included</li>
+  </ul>
+
+  <h2>Builds</h2>
+  <ul>
+    <li>Kotlin + Jetpack Compose, Gradle Kotlin DSL, minSdk 23</li>
+    <li>CI produces debug APK and release AAB with unit tests on every run</li>
+  </ul>
+
+  <footer>© 2026 Jorge Palanca · <a href="/">Home</a> · <a href="/tv-remote-remapper/privacy.html">Privacy Policy</a></footer>
+</main>
+</body>
+</html>
